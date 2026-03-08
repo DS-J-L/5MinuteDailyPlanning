@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #1c1b18;
+  background:
+    radial-gradient(circle at top left, rgba(196, 106, 47, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(41, 71, 63, 0.16), transparent 24%),
+    linear-gradient(180deg, #f3efe4 0%, #fffaf1 52%, #eef4ef 100%);
+  font-family: "Space Grotesk", "Noto Sans KR", "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  color: #1c1b18;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.glass-panel {
+  background: rgba(255, 250, 241, 0.84);
+  backdrop-filter: blur(14px);
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(transparent 0%, rgba(28, 27, 24, 0.02) 100%),
+    radial-gradient(rgba(28, 27, 24, 0.08) 0.6px, transparent 0.6px);
+  background-size: 100% 100%, 12px 12px;
+}
