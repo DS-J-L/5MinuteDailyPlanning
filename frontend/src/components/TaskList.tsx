@@ -9,7 +9,7 @@ export default function TaskList({ tasks, onDelete }: TaskListProps) {
   if (tasks.length === 0) {
     return (
       <div className="glass-panel rounded-[28px] border border-dashed border-ink/15 p-6 text-center text-sm text-ink/60">
-        Your list is empty. Add at least three items to move to Big 3 selection.
+        아직 항목이 없습니다. Big 3 선택으로 넘어가려면 최소 3개를 입력하세요.
       </div>
     );
   }
@@ -22,7 +22,7 @@ export default function TaskList({ tasks, onDelete }: TaskListProps) {
           className="glass-panel flex items-center justify-between gap-4 rounded-[24px] border border-white/70 p-4 shadow-panel"
         >
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-pine/60">Item {index + 1}</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-pine/60">항목 {index + 1}</p>
             <p className="mt-1 text-base text-ink">{task.content}</p>
           </div>
           {onDelete ? (
@@ -31,7 +31,7 @@ export default function TaskList({ tasks, onDelete }: TaskListProps) {
               onClick={() => void onDelete(task.id)}
               className="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink transition hover:bg-white/80"
             >
-              Delete
+              삭제
             </button>
           ) : null}
         </div>

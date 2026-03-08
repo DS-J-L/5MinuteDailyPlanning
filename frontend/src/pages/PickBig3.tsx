@@ -23,7 +23,7 @@ export default function PickBig3Page() {
         const savedDraft = getDraftTasks(date);
         setSelectedTasks(savedDraft);
       } catch (loadError) {
-        setError(loadError instanceof Error ? loadError.message : "Failed to load tasks.");
+        setError(loadError instanceof Error ? loadError.message : "작업 목록을 불러오지 못했습니다.");
       }
     }
 
@@ -50,7 +50,7 @@ export default function PickBig3Page() {
 
   function handleContinue() {
     if (selectedTasks.length !== 3) {
-      setError("Select exactly three tasks to continue.");
+      setError("다음 단계로 가려면 정확히 3개를 선택해야 합니다.");
       return;
     }
 
@@ -62,10 +62,10 @@ export default function PickBig3Page() {
       <section className="glass-panel rounded-[32px] border border-white/70 p-6 shadow-panel">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Big 3 selection</p>
-            <h2 className="mt-2 text-3xl font-semibold text-ink">Choose the three outcomes that matter most today.</h2>
+            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Big 3 선택</p>
+            <h2 className="mt-2 text-3xl font-semibold text-ink">오늘 가장 중요한 세 가지 결과를 고르세요.</h2>
           </div>
-          <p className="rounded-full bg-accentSoft px-4 py-2 text-sm font-medium text-ink">{selectedTasks.length}/3 selected</p>
+          <p className="rounded-full bg-accentSoft px-4 py-2 text-sm font-medium text-ink">{selectedTasks.length}/3 선택됨</p>
         </div>
       </section>
 
@@ -77,14 +77,14 @@ export default function PickBig3Page() {
 
       <div className="flex flex-wrap gap-3">
         <Link to="/brain-dump" className="rounded-full bg-white px-5 py-3 text-sm font-medium text-ink transition hover:bg-white/80">
-          Back
+          이전
         </Link>
         <button
           type="button"
           onClick={handleContinue}
           className="rounded-full bg-pine px-5 py-3 text-sm font-medium text-white transition hover:bg-pine/90"
         >
-          Estimate time
+          예상 시간 입력
         </button>
       </div>
 

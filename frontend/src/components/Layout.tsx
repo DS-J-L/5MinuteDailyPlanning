@@ -3,8 +3,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import { formatLongDate, getTodayKey } from "../lib/date";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/history", label: "History" }
+  { to: "/", label: "홈" },
+  { to: "/history", label: "기록" }
 ];
 
 export default function Layout() {
@@ -18,7 +18,7 @@ export default function Layout() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-pine/70">5-minute daily planning</p>
-              <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Build a focused day in five minutes.</h1>
+              <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">5분 안에 오늘의 우선순위를 정리하세요.</h1>
               <p className="mt-2 text-sm text-ink/70">{formatLongDate(today)}</p>
             </div>
             <nav className="flex gap-2">

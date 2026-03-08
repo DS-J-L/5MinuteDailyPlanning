@@ -36,13 +36,13 @@ export default function BrainDumpTimer({ initialSeconds = 120 }: BrainDumpTimerP
 
   return (
     <section className="glass-panel rounded-[28px] border border-white/70 p-5 shadow-panel">
-      <p className="text-sm uppercase tracking-[0.25em] text-pine/70">Brain dump sprint</p>
+      <p className="text-sm uppercase tracking-[0.25em] text-pine/70">2분 브레인 덤프</p>
       <div className="mt-4 flex items-center justify-between gap-4">
         <div>
           <p className="text-4xl font-semibold text-pine">
             {minutes}:{seconds}
           </p>
-          <p className="mt-1 text-sm text-ink/70">Capture as many thoughts as you can in two minutes.</p>
+          <p className="mt-1 text-sm text-ink/70">2분 동안 떠오르는 생각을 최대한 많이 적어보세요.</p>
         </div>
         <div className="flex gap-2">
           <button
@@ -50,14 +50,14 @@ export default function BrainDumpTimer({ initialSeconds = 120 }: BrainDumpTimerP
             onClick={() => setIsRunning((current) => !current)}
             className="rounded-full bg-pine px-4 py-2 text-sm font-medium text-white transition hover:bg-pine/90"
           >
-            {isRunning ? "Pause" : secondsLeft === 0 ? "Done" : "Resume"}
+            {isRunning ? "일시정지" : secondsLeft === 0 ? "완료" : "다시 시작"}
           </button>
           <button
             type="button"
             onClick={handleReset}
             className="rounded-full bg-white px-4 py-2 text-sm font-medium text-ink transition hover:bg-white/80"
           >
-            Reset
+            초기화
           </button>
         </div>
       </div>

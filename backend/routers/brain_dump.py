@@ -38,7 +38,7 @@ def create_brain_dump(entry: schemas.BrainDumpCreate, db: Session = Depends(get_
 def delete_brain_dump(entry_id: int, db: Session = Depends(get_db)) -> dict:
     entry = db.get(models.BrainDumpEntry, entry_id)
     if entry is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Brain dump entry not found.")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="브레인 덤프 항목을 찾을 수 없습니다.")
 
     db.delete(entry)
     db.commit()

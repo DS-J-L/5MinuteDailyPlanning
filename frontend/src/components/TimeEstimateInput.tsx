@@ -8,10 +8,10 @@ type TimeEstimateInputProps = {
 export default function TimeEstimateInput({ task, onChange }: TimeEstimateInputProps) {
   return (
     <div className="glass-panel rounded-[24px] border border-white/70 p-5 shadow-panel">
-      <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Big 3 task</p>
+      <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Big 3 작업</p>
       <p className="mt-2 text-lg font-medium text-ink">{task.content}</p>
       <label className="mt-4 block text-sm text-ink/70">
-        Estimated minutes
+        예상 시간(분)
         <input
           type="number"
           min={1}

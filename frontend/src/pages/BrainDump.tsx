@@ -20,7 +20,7 @@ export default function BrainDumpPage() {
         const data = await getBrainDump(date);
         setEntries(data);
       } catch (loadError) {
-        setError(loadError instanceof Error ? loadError.message : "Failed to load brain dump items.");
+        setError(loadError instanceof Error ? loadError.message : "브레인 덤프 항목을 불러오지 못했습니다.");
       }
     }
 
@@ -33,7 +33,7 @@ export default function BrainDumpPage() {
       const newEntry = await createBrainDump(date, content);
       setEntries((current) => [...current, newEntry]);
     } catch (addError) {
-      setError(addError instanceof Error ? addError.message : "Failed to add item.");
+      setError(addError instanceof Error ? addError.message : "항목을 추가하지 못했습니다.");
     }
   }
 
@@ -43,7 +43,7 @@ export default function BrainDumpPage() {
       await deleteBrainDump(id);
       setEntries((current) => current.filter((entry) => entry.id !== id));
     } catch (deleteError) {
-      setError(deleteError instanceof Error ? deleteError.message : "Failed to delete item.");
+      setError(deleteError instanceof Error ? deleteError.message : "항목을 삭제하지 못했습니다.");
     }
   }
 
@@ -57,8 +57,8 @@ export default function BrainDumpPage() {
       <section className="space-y-4">
         <div className="flex items-center justify-between gap-4">
           <div>
-            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Brain dump list</p>
-            <h2 className="mt-2 text-2xl font-semibold text-ink">Capture everything before you prioritize.</h2>
+            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">브레인 덤프 목록</p>
+            <h2 className="mt-2 text-2xl font-semibold text-ink">우선순위를 정하기 전에 먼저 전부 적어보세요.</h2>
           </div>
           <Link
             to="/pick-big3"
@@ -66,7 +66,7 @@ export default function BrainDumpPage() {
               entries.length >= 3 ? "bg-pine text-white hover:bg-pine/90" : "pointer-events-none bg-white/70 text-ink/40"
             }`}
           >
-            Pick Big 3
+            Big 3 고르기
           </Link>
         </div>
 

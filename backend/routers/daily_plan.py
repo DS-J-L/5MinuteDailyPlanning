@@ -86,11 +86,11 @@ def get_daily_plan(selected_date: date = Query(alias="date"), db: Session = Depe
 @router.patch("/api/big3-task/{task_id}")
 def update_big3_task(task_id: int, task_update: schemas.Big3TaskUpdate, db: Session = Depends(get_db)) -> dict:
     if not task_update.has_updates():
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="At least one field is required.")
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="수정할 항목을 하나 이상 보내주세요.")
 
     task = db.get(models.Big3Task, task_id)
     if task is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Task not found.")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="작업을 찾을 수 없습니다.")
 
     if task_update.estimated_minutes is not None:
         task.estimated_minutes = task_update.estimated_minutes

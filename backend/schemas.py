@@ -13,7 +13,7 @@ class BrainDumpCreate(BaseModel):
     def strip_content(cls, value: str) -> str:
         cleaned = value.strip()
         if not cleaned:
-            raise ValueError("Content cannot be empty.")
+            raise ValueError("내용을 입력해주세요.")
         return cleaned
 
 
@@ -35,7 +35,7 @@ class Big3TaskCreate(BaseModel):
     def strip_content(cls, value: str) -> str:
         cleaned = value.strip()
         if not cleaned:
-            raise ValueError("Task content cannot be empty.")
+            raise ValueError("작업 내용을 입력해주세요.")
         return cleaned
 
 
@@ -47,7 +47,7 @@ class DailyPlanCreate(BaseModel):
     @classmethod
     def validate_tasks(cls, value: list[Big3TaskCreate]) -> list[Big3TaskCreate]:
         if len(value) != 3:
-            raise ValueError("Daily plan must contain exactly 3 tasks.")
+            raise ValueError("하루 계획에는 정확히 3개의 작업이 필요합니다.")
         return value
 
 

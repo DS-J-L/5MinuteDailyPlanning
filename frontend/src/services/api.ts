@@ -23,7 +23,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const payload = (await response.json()) as ApiResponse<T>;
 
   if (!response.ok || !payload.success) {
-    throw new Error(payload.success ? "Request failed." : payload.error);
+    throw new Error(payload.success ? "요청 처리에 실패했습니다." : payload.error);
   }
 
   return payload.data;

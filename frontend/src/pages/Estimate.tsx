@@ -32,13 +32,13 @@ export default function EstimatePage() {
 
   async function handleSavePlan() {
     if (tasks.length !== 3) {
-      setError("You need exactly three selected tasks before saving a plan.");
+      setError("계획을 저장하려면 먼저 정확히 3개의 작업을 선택해야 합니다.");
       navigate("/pick-big3");
       return;
     }
 
     if (tasks.some((task) => task.estimated_minutes <= 0)) {
-      setError("Every task needs a valid estimated time.");
+      setError("모든 작업에 올바른 예상 시간을 입력해주세요.");
       return;
     }
 
@@ -49,7 +49,7 @@ export default function EstimatePage() {
       clearDraftTasks(date);
       navigate("/today");
     } catch (saveError) {
-      setError(saveError instanceof Error ? saveError.message : "Failed to save plan.");
+      setError(saveError instanceof Error ? saveError.message : "계획을 저장하지 못했습니다.");
     } finally {
       setIsSaving(false);
     }
@@ -66,7 +66,7 @@ export default function EstimatePage() {
           ))}
           {tasks.length === 0 ? (
             <div className="glass-panel rounded-[28px] border border-dashed border-ink/15 p-6 text-center text-sm text-ink/60">
-              No Big 3 draft found for today. Go back and choose three tasks first.
+              오늘 선택된 Big 3 초안이 없습니다. 먼저 이전 단계에서 3개를 고르세요.
             </div>
           ) : null}
         </div>
@@ -74,9 +74,9 @@ export default function EstimatePage() {
         <div className="space-y-4">
           <TotalTimeDisplay totalMinutes={totalMinutes} />
           <div className="glass-panel rounded-[28px] border border-white/70 p-5 shadow-panel">
-            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">Before you save</p>
+            <p className="text-sm uppercase tracking-[0.2em] text-pine/70">저장 전 확인</p>
             <p className="mt-2 text-sm text-ink/70">
-              The MVP saves one daily plan per date. Saving again replaces the existing Big 3 for the current day.
+              이 MVP는 날짜별로 하나의 하루 계획만 저장합니다. 다시 저장하면 같은 날짜의 Big 3가 교체됩니다.
             </p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function EstimatePage() {
 
       <div className="flex flex-wrap gap-3">
         <Link to="/pick-big3" className="rounded-full bg-white px-5 py-3 text-sm font-medium text-ink transition hover:bg-white/80">
-          Back
+          이전
         </Link>
         <button
           type="button"
@@ -92,7 +92,7 @@ export default function EstimatePage() {
           disabled={isSaving}
           className="rounded-full bg-accent px-5 py-3 text-sm font-medium text-white transition hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {isSaving ? "Saving..." : "Save plan"}
+          {isSaving ? "저장 중..." : "계획 저장"}
         </button>
       </div>
 

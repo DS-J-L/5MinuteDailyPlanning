@@ -22,7 +22,7 @@ export default function Big3Selector({ tasks, selectedTaskIds, onToggle }: Big3S
                 : "glass-panel border-white/70 text-ink hover:border-accent hover:bg-white/90"
             }`}
           >
-            <p className="text-xs uppercase tracking-[0.2em] opacity-70">{isSelected ? "Selected" : "Tap to choose"}</p>
+            <p className="text-xs uppercase tracking-[0.2em] opacity-70">{isSelected ? "선택됨" : "탭해서 선택"}</p>
             <p className="mt-2 text-lg font-medium">{task.content}</p>
           </button>
         );

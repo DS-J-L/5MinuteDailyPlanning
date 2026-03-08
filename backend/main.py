@@ -3,6 +3,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from config import get_cors_origins
 from api_response import error_response
 from database import Base, engine
 from routers import brain_dump, daily_plan, history, review
@@ -10,11 +11,11 @@ from routers import brain_dump, daily_plan, history, review
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="5-Minute Daily Planning API")
+app = FastAPI(title="5분 데일리 플래닝 API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=get_cors_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -28,7 +29,7 @@ app.include_router(history.router)
 
 @app.get("/")
 def read_root() -> dict:
-    return {"success": True, "data": {"message": "5-Minute Daily Planning API"}}
+    return {"success": True, "data": {"message": "5분 데일리 플래닝 API"}}
 
 
 @app.exception_handler(HTTPException)
@@ -38,7 +39,7 @@ async def http_exception_handler(_: Request, exc: HTTPException) -> JSONResponse
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(_: Request, exc: RequestValidationError) -> JSONResponse:
-    first_error = exc.errors()[0]["msg"] if exc.errors() else "Validation error."
+    first_error = exc.errors()[0]["msg"] if exc.errors() else "입력값 검증 오류가 발생했습니다."
     return JSONResponse(
         status_code=status.HTTP_400_BAD_REQUEST,
         content=error_response(first_error),

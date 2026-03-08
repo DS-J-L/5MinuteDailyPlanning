@@ -7,7 +7,7 @@ export function getTodayKey() {
 }
 
 export function formatLongDate(date: string) {
-  return new Intl.DateTimeFormat("en-US", {
+  return new Intl.DateTimeFormat("ko-KR", {
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -20,12 +20,12 @@ export function formatMinutes(totalMinutes: number) {
   const minutes = totalMinutes % 60;
 
   if (hours === 0) {
-    return `${minutes} min`;
+    return `${minutes}분`;
   }
 
   if (minutes === 0) {
-    return `${hours} hr`;
+    return `${hours}시간`;
   }
 
-  return `${hours} hr ${minutes} min`;
+  return `${hours}시간 ${minutes}분`;
 }

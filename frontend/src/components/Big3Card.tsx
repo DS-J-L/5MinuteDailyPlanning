@@ -15,7 +15,7 @@ export default function Big3Card({ task, onComplete }: Big3CardProps) {
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs uppercase tracking-[0.2em] text-pine/70">Priority {task.sort_order + 1}</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-pine/70">우선순위 {task.sort_order + 1}</p>
           <h3 className="mt-2 text-xl font-medium text-ink">{task.content}</h3>
           <p className="mt-2 text-sm text-ink/70">{formatMinutes(task.estimated_minutes)}</p>
         </div>
@@ -26,7 +26,7 @@ export default function Big3Card({ task, onComplete }: Big3CardProps) {
             onChange={() => void onComplete(task)}
             className="h-4 w-4 rounded border-ink/20 text-pine focus:ring-pine"
           />
-          Done
+          완료
         </label>
       </div>
     </div>

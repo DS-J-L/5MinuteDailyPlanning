@@ -15,7 +15,7 @@ export default function HistoryPage() {
         const data = await getHistory();
         setHistory(data);
       } catch (loadError) {
-        setError(loadError instanceof Error ? loadError.message : "Failed to load history.");
+        setError(loadError instanceof Error ? loadError.message : "기록을 불러오지 못했습니다.");
       }
     }
 
@@ -25,8 +25,8 @@ export default function HistoryPage() {
   return (
     <div className="space-y-6">
       <section className="glass-panel rounded-[32px] border border-white/70 p-6 shadow-panel">
-        <p className="text-sm uppercase tracking-[0.2em] text-pine/70">History</p>
-        <h2 className="mt-2 text-3xl font-semibold text-ink">Look back on previous days and how the Big 3 actually played out.</h2>
+        <p className="text-sm uppercase tracking-[0.2em] text-pine/70">기록</p>
+        <h2 className="mt-2 text-3xl font-semibold text-ink">이전 날짜의 Big 3와 회고를 한눈에 돌아보세요.</h2>
       </section>
 
       {history.length ? (
@@ -37,7 +37,7 @@ export default function HistoryPage() {
         </div>
       ) : (
         <div className="glass-panel rounded-[28px] border border-dashed border-ink/15 p-6 text-center text-sm text-ink/60">
-          No saved history yet. Complete a plan and review to populate this page.
+          아직 저장된 기록이 없습니다. 계획과 회고를 남기면 이 페이지에 쌓입니다.
         </div>
       )}
 
